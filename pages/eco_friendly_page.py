@@ -13,7 +13,7 @@ class EcoFriendlyPage(BasePage):
         count_of_items = len(self.find_all(loc.cards_loc))
         assert count_of_items == expected_quantity
 
-    def select_size(self):
+    def select_xs_size_and_check_items_labels(self):
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located(loc.filter_size_loc))
         select_drop_down = self.find(loc.filter_size_loc)
         select_drop_down.click()
@@ -35,7 +35,7 @@ class EcoFriendlyPage(BasePage):
             EC.invisibility_of_element_located(loc.filter_label_loc)
         )
 
-    def filter_price(self):
+    def filter_price_and_check_items_price_is_in_range(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(loc.filter_price_loc))
         select_price = self.find(loc.filter_price_loc)
         select_price.click()
